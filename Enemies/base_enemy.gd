@@ -2,7 +2,7 @@ class_name Base_Enemy extends CharacterBody2D
 
 @export var health_component:Health_Component
 @export var move_speed:float = 50
-@export var exp_value:int = 2
+@export var exp_value:int = 1
 
 func _ready():
 	if !health_component:
