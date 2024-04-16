@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhvxyhdcgicqy"]
+
+[ext_resource type="Script" path="res://Interface/exp_hud.gd" id="1_50f28"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iqus8"]
+font_size = 32
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="EXPHud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+script = ExtResource("1_50f28")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.01
+anchor_right = 0.01
+anchor_bottom = 0.01
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Level" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "13"
+label_settings = SubResource("LabelSettings_iqus8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EXP" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "13"
+label_settings = SubResource("LabelSettings_iqus8")
+horizontal_alignment = 1
+vertical_alignment = 1

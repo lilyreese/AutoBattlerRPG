@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://02ju5op2xxht"]
+
+[ext_resource type="Script" path="res://Player/player_menager.gd" id="1_s3hvj"]
+[ext_resource type="Script" path="res://Components/hurtbox_component.gd" id="3_xsofu"]
+[ext_resource type="AudioStream" uid="uid://dp4erbaf0n71x" path="res://Assets/plopt.mp3" id="4_dgjak"]
+[ext_resource type="Script" path="res://Components/health_component.gd" id="4_ra5at"]
+[ext_resource type="PackedScene" uid="uid://cwl3gcv04o2i2" path="res://Interface/skill_inventory.tscn" id="5_4wttw"]
+[ext_resource type="PackedScene" uid="uid://r5vyjcprf21w" path="res://Interface/combo_bar.tscn" id="6_hgi5b"]
+[ext_resource type="PackedScene" uid="uid://bhvxyhdcgicqy" path="res://Interface/exp_hud.tscn" id="7_dueu3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8ors"]
+size = Vector2(20, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayink"]
+
+[node name="PlayerMenager" type="Node2D"]
+script = ExtResource("1_s3hvj")
+
+[node name="ComboTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="ComboActionContainer" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dgjak")
+
+[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("3_xsofu")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("RectangleShape2D_g8ors")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_ra5at")
+max_health = 100
+
+[node name="DamagePosition" type="Node2D" parent="HealthComponent"]
+
+[node name="PlayerBody" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody"]
+shape = SubResource("RectangleShape2D_ayink")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[node name="ComboBar" type="CanvasLayer" parent="."]
+
+[node name="ComboBar" parent="ComboBar" instance=ExtResource("6_hgi5b")]
+
+[node name="SkillInventory" type="CanvasLayer" parent="."]
+
+[node name="SkillInventory" parent="SkillInventory" node_paths=PackedStringArray("player_menager") instance=ExtResource("5_4wttw")]
+player_menager = NodePath("../..")
+
+[node name="EXPHud" type="CanvasLayer" parent="."]
+
+[node name="EXPHud" parent="EXPHud" instance=ExtResource("7_dueu3")]

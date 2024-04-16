@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtu54tgpdf4gu"]
+
+[ext_resource type="Script" path="res://Interface/ca_inventory_slot.gd" id="1_8nons"]
+
+[node name="CAInventorySlot" type="TextureRect"]
+custom_minimum_size = Vector2(130, 130)
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 0
+script = ExtResource("1_8nons")

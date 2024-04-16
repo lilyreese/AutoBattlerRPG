@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwl3gcv04o2i2"]
+
+[ext_resource type="Script" path="res://Interface/skill_inventory.gd" id="1_ht1o7"]
+[ext_resource type="PackedScene" uid="uid://dtu54tgpdf4gu" path="res://Interface/ca_inventory_slot.tscn" id="2_lqn36"]
+
+[node name="SkillInventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_ht1o7")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.1
+anchor_right = 0.7
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.1
+anchor_right = 0.7
+anchor_bottom = 0.5
+grow_horizontal = 2
+mouse_filter = 2
+columns = 5
+
+[node name="CAInventorySlot" parent="GridContainer" instance=ExtResource("2_lqn36")]
+layout_mode = 2
+
+[node name="CAInventorySlot2" parent="GridContainer" instance=ExtResource("2_lqn36")]
+layout_mode = 2

@@ -1,0 +1,2 @@
+class_name Sword_Slash_Combo_Action extends Base_Combo_Action
+

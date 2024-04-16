@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg1v6d12nt8mh"]
+
+[ext_resource type="Script" path="res://Enemies/EnemySpawner.gd" id="1_garab"]
+
+[node name="EnemySpawner" type="Node2D"]
+script = ExtResource("1_garab")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="EnemyContainer" type="Node" parent="."]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

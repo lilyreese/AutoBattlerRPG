@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://cla2gpce7syxn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_451rm"]
+font_size = 18
+font_color = Color(1, 1, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DamageNumber" type="Label"]
+z_index = 50
+z_as_relative = false
+offset_right = 11.0
+offset_bottom = 26.0
+pivot_offset = Vector2(48, 13)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 8
+text = "1"
+label_settings = SubResource("LabelSettings_451rm")
+horizontal_alignment = 1
+vertical_alignment = 1

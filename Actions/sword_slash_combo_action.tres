@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Combo_Action_Resource" load_steps=5 format=3 uid="uid://cm8ljoahlsf8t"]
+
+[ext_resource type="Texture2D" uid="uid://dha2tgwovnk3y" path="res://Assets/#1 - Transparent Icons.png" id="1_46h03"]
+[ext_resource type="Script" path="res://Actions/combo_action_resource.gd" id="1_bbrf1"]
+[ext_resource type="PackedScene" uid="uid://dt3geqow46hwa" path="res://Actions/Scenes/sword_slash_combo_action.tscn" id="2_jmjsr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4kvt"]
+atlas = ExtResource("1_46h03")
+region = Rect2(32, 160, 32, 32)
+
+[resource]
+script = ExtResource("1_bbrf1")
+action_name = "Sword Slash"
+action_icon = SubResource("AtlasTexture_h4kvt")
+base_damage = 10
+base_duration = 1.0
+combo_scene = ExtResource("2_jmjsr")

@@ -1,0 +1,1 @@
+class_name Sword_Stab_Combo_Action extends Base_Combo_Action

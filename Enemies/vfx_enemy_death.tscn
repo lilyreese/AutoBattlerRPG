@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxl67xgaapq0e"]
+
+[sub_resource type="Gradient" id="Gradient_b1ph8"]
+offsets = PackedFloat32Array(0, 0.0299401, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0866525, 1.81655e-06, 0.420776, 1, 0.165306, 3.46541e-06, 0.802711, 1)
+
+[node name="VFXEnemyDeath" type="CPUParticles2D"]
+scale = Vector2(6, 6)
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+direction = Vector2(0.7, -1)
+initial_velocity_min = 200.0
+initial_velocity_max = 600.0
+angular_velocity_min = -282.62
+angular_velocity_max = 201.87
+damping_min = 50.0
+damping_max = 50.0
+scale_amount_max = 2.0
+color = Color(0.784314, 0.792157, 0.972549, 1)
+color_ramp = SubResource("Gradient_b1ph8")

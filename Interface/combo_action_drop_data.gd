@@ -1,0 +1,4 @@
+class_name Combo_Action_Drop_Data
+
+var combo_action_resource:Combo_Action_Resource
+var origin_control:Control

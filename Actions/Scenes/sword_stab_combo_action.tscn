@@ -1,0 +1,150 @@
+[gd_scene load_steps=10 format=3 uid="uid://b4i6g0vwndhk3"]
+
+[ext_resource type="Script" path="res://Actions/Scenes/sword_stab_combo_action.gd" id="1_eyjbh"]
+[ext_resource type="PackedScene" uid="uid://ckwu2ve4pxbgy" path="res://Components/hitbox_component.tscn" id="2_etbwu"]
+[ext_resource type="Texture2D" uid="uid://bp0ch0vvk2s2r" path="res://Assets/Animations/sword_stab/Player Sword Stab 96x48.png" id="3_3y8yo"]
+[ext_resource type="AudioStream" uid="uid://srqox3ettuak" path="res://Assets/stab.mp3" id="4_5g1il"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5c1b"]
+size = Vector2(59, 24)
+
+[sub_resource type="Animation" id="Animation_bybx2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ComboSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_fq6oy"]
+resource_name = "sword_slash"
+loop_mode = 1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ComboSprite:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 0.8, 0.85, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.81, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_48fvk"]
+resource_name = "sword_stab"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ComboSprite:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.2, 0.25, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("4_5g1il")],
+"method": &"combo_action_sfx"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fy2uy"]
+_data = {
+"RESET": SubResource("Animation_bybx2"),
+"sword_slash": SubResource("Animation_fq6oy"),
+"sword_stab": SubResource("Animation_48fvk")
+}
+
+[node name="SwordSlashComboAction" type="Node2D" node_paths=PackedStringArray("hitbox_component")]
+script = ExtResource("1_eyjbh")
+hitbox_component = NodePath("Hitbox")
+
+[node name="Hitbox" parent="." instance=ExtResource("2_etbwu")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(20.5, 4)
+shape = SubResource("RectangleShape2D_i5c1b")
+disabled = true
+
+[node name="ComboSprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_3y8yo")
+hframes = 7
+
+[node name="ComboAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fy2uy")
+}
+autoplay = "sword_stab"
