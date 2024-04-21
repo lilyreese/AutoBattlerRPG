@@ -1,6 +1,7 @@
 class_name Player_Menager extends Node2D
 
-@onready var skill_inventory_canvas:CanvasLayer = $SkillInventory
+@onready var attributes_window_canvas:Window = $AttributesWindow
+@onready var skill_inventory_canvas:CanvasLayer = $SkillInventoryCanvas
 @onready var exp_hud:EXP_Hud = $EXPHud/EXPHud
 @onready var combo_bar:Combo_Bar = $ComboBar/ComboBar
 
@@ -29,6 +30,9 @@ func _ready():
 func _input(event):
 	if Input.is_action_just_pressed("open_skill_inventory"):
 		skill_inventory_canvas.visible = !skill_inventory_canvas.visible
+		
+	if Input.is_action_just_pressed("open_attribute_window"):
+		attributes_window_canvas.visible = !attributes_window_canvas.visible
 
 func _on_attack_timer_timeout():
 	_execute_next_action()

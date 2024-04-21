@@ -1,0 +1,118 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8ldcutpoaf"]
+
+[ext_resource type="Script" path="res://Interface/attributes_window.gd" id="1_2xmed"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hy5sg"]
+line_spacing = 5.0
+font_size = 30
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="AttributesWindow" type="Window"]
+handle_input_locally = false
+title = "Attributes Window"
+position = Vector2i(200, 200)
+transparent = true
+unfocusable = true
+popup_window = true
+min_size = Vector2i(100, 100)
+max_size = Vector2i(500, 500)
+content_scale_size = Vector2i(250, 250)
+content_scale_mode = 1
+content_scale_aspect = 4
+content_scale_stretch = 1
+script = ExtResource("1_2xmed")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.025
+anchor_right = 0.2
+anchor_bottom = 0.2
+offset_left = 45.5
+offset_top = 24.5
+offset_right = 45.5
+offset_bottom = 24.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.025
+anchor_right = 0.2
+anchor_bottom = 0.2
+offset_left = 45.5
+offset_top = 24.5
+offset_right = 175.0
+offset_bottom = 181.0
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Attributes"
+label_settings = SubResource("LabelSettings_hy5sg")
+horizontal_alignment = 1
+
+[node name="Attribute_Spliter" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="AttributeLabelSTR" type="Label" parent="VBoxContainer/Attribute_Spliter"]
+layout_mode = 2
+text = "Strength"
+
+[node name="AttributeValueSTR" type="Label" parent="VBoxContainer/Attribute_Spliter"]
+layout_mode = 2
+text = "10
+"
+
+[node name="AttributePlusSTR" type="Button" parent="VBoxContainer/Attribute_Spliter"]
+layout_mode = 2
+text = "+"
+
+[node name="Attribute_Spliter4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="AttributeLabelAGI" type="Label" parent="VBoxContainer/Attribute_Spliter4"]
+layout_mode = 2
+text = "Agility"
+
+[node name="AttributeValueAGI" type="Label" parent="VBoxContainer/Attribute_Spliter4"]
+layout_mode = 2
+text = "10"
+
+[node name="AttributePlusAGI" type="Button" parent="VBoxContainer/Attribute_Spliter4"]
+layout_mode = 2
+text = "+"
+
+[node name="Attribute_Spliter5" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="AttributeLabelDEX" type="Label" parent="VBoxContainer/Attribute_Spliter5"]
+layout_mode = 2
+text = "Dexterity
+"
+
+[node name="AttributeValueDEX" type="Label" parent="VBoxContainer/Attribute_Spliter5"]
+layout_mode = 2
+text = "10
+"
+
+[node name="AttributePlusDEX" type="Button" parent="VBoxContainer/Attribute_Spliter5"]
+layout_mode = 2
+text = "+"
+
+[node name="PointsAvailable" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="PointsLabel" type="Label" parent="VBoxContainer/PointsAvailable"]
+layout_mode = 2
+text = "Points Available:"
+
+[node name="PointsLabel2" type="Label" parent="VBoxContainer/PointsAvailable"]
+layout_mode = 2
+text = "0
+"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
