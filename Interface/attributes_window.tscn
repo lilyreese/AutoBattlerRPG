@@ -12,8 +12,8 @@ outline_color = Color(0, 0, 0, 1)
 handle_input_locally = false
 title = "Attributes Window"
 position = Vector2i(200, 200)
+size = Vector2i(300, 300)
 transparent = true
-unfocusable = true
 popup_window = true
 min_size = Vector2i(100, 100)
 max_size = Vector2i(500, 500)
@@ -110,7 +110,7 @@ alignment = 1
 layout_mode = 2
 text = "Points Available:"
 
-[node name="PointsLabel2" type="Label" parent="VBoxContainer/PointsAvailable"]
+[node name="PointsValue" type="Label" parent="VBoxContainer/PointsAvailable"]
 layout_mode = 2
 text = "0
 "

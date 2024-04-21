@@ -1,22 +1,36 @@
 class_name Attribute
 
-signal attribute_modified()
+signal attribute_modified(attribute:Attribute)
 
-var base_value:int = 0
-var final_value:int = 0
-var modifiers:Dictionary = {} #id, value
+var key:String = ''
+var base_value:int = 10 : set=_on_base_value_changed
+var final_value:int = 0 : set=_on_final_value_changed
+var modifiers:Dictionary = {} : set=_on_modifiers_changed
 
+func _on_base_value_changed(value:int):
+	var old_value = base_value
+	base_value = value
+	if old_value != value:
+		_recalculate_final_value()
+		
+func _on_final_value_changed(value:int):
+	var old_value = final_value
+	final_value = value
+	if old_value != value:
+		_emit_change()
+
+func _on_modifiers_changed(value):
+	modifiers = value
+	
 func _init():
 	final_value = base_value
 	
 func add_modifier(id, value):
 	modifiers[id] = value
-	attribute_modified.emit()
 	
 func remove_modifier(id):
 	if modifiers.has(id):
 		modifiers.erase(id)
-		attribute_modified.emit()
 		
 func _recalculate_final_value():
 	var calculated_value:int = base_value
@@ -29,6 +43,8 @@ func get_final_value() -> int:
 	_recalculate_final_value()
 	return final_value
 	
-func change_base_value(value:int):
+func add_base_value(value:int):
 	base_value += value
-	attribute_modified.emit()
+
+func _emit_change():
+	attribute_modified.emit(self)

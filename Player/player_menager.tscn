@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://02ju5op2xxht"]
+[gd_scene load_steps=12 format=3 uid="uid://02ju5op2xxht"]
 
 [ext_resource type="Script" path="res://Player/player_menager.gd" id="1_s3hvj"]
 [ext_resource type="Script" path="res://Components/hurtbox_component.gd" id="3_xsofu"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://r5vyjcprf21w" path="res://Interface/combo_bar.tscn" id="6_hgi5b"]
 [ext_resource type="PackedScene" uid="uid://bhvxyhdcgicqy" path="res://Interface/exp_hud.tscn" id="7_dueu3"]
 [ext_resource type="PackedScene" uid="uid://c8ldcutpoaf" path="res://Interface/attributes_window.tscn" id="8_jj5cn"]
+[ext_resource type="PackedScene" uid="uid://d31mrm7y3r8wg" path="res://Player/AttributesSystem/attribute_menager.tscn" id="9_6smda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8ors"]
 size = Vector2(20, 78)
@@ -62,3 +63,5 @@ player_menager = NodePath("../..")
 [node name="EXPHud" parent="EXPHud" instance=ExtResource("7_dueu3")]
 
 [node name="AttributesWindow" parent="." instance=ExtResource("8_jj5cn")]
+
+[node name="AttributeMenager" parent="." instance=ExtResource("9_6smda")]

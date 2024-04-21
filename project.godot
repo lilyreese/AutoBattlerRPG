@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 SfxMenager="*res://Autoloads/sfx_menager.gd"
 VfxMenager="*res://Autoloads/vfx_menager.gd"
 WaveMenager="*res://Autoloads/wave_menager.gd"
-GlobalCommands="*res://Autoloads/global_commands.gd"
+GlobalInfo="*res://Autoloads/global_info.gd"
 
 [display]
 
