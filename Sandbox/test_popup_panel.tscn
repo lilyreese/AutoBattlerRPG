@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bt5hsu0dskdy6"]
+
+[node name="PopupPanel" type="PopupPanel"]
+position = Vector2i(50, 50)
+visible = true
+borderless = false
